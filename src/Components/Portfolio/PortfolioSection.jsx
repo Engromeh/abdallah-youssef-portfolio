@@ -1,34 +1,35 @@
 import React from "react";
+import me from "../../assets/Romeh.jpg";
 const portfolioData = [
   {
     id: 1,
     title: "Golden Desert",
     category: "Landscape",
-    images: ["me", "me", "me"],
+    images: [me, me, me],
   },
   {
     id: 2,
     title: "Urban Silence",
     category: "Street",
-    images: ["me", "me", "me"],
+    images: [me, me, me],
   },
   {
     id: 3,
     title: "Soft Portrait",
     category: "Portrait",
-    images: ["me", "me", "me"],
+    images: [me, me, me],
   },
   {
     id: 4,
     title: "Wild Nature",
     category: "Travel",
-    images: ["me", "me", "me"],
+    images: [me, me, me],
   },
   {
     id: 5,
     title: "Cinematic Motion",
     category: "Video",
-    images: ["me", "me", "me"],
+    images: [me, me, me],
   },
 ];
 const PortfolioSection = () => {

@@ -1,3 +1,4 @@
+import me from "../assets/Romeh.jpg";
 export default function About() {
   return (
     <section id="about" className="bg-softBeige min-h-screen flex items-center">
@@ -37,7 +38,7 @@ export default function About() {
 
           <div className="bg-lightSand p-4 rounded-2xl shadow-md">
             <img
-              src="{me}"
+              src={me}
               alt="Abdallah Youssef"
               className="rounded-xl w-full object-cover"
             />
