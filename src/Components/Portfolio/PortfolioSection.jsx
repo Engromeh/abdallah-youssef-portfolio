@@ -34,7 +34,7 @@ const portfolioData = [
 ];
 const PortfolioSection = () => {
   return (
-    <section className="w-full min-h-screen bg-softBeige px-6 py-24">
+    <section id="Projects" className="w-full min-h-screen bg-softBeige px-6 py-24">
       <div className="max-w-7xl mx-auto">
 
         <h2 className="text-4xl md:text-5xl font-light text-richBlack mb-16">

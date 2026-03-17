@@ -32,9 +32,11 @@ export default function About() {
         </div>
 
         {/* ================= Right Side (Image) ================= */}
-        <div className="relative">
+
+
+        {/* <div className="relative">
           {/* خط ذهبي بسيط تحت الصورة */}
-          <div className="absolute -top-4 -left-4 w-24 h-24 border-4 border-mutedGold rounded-2xl"></div>
+          {/* <div className="absolute -top-4 -left-4 w-24 h-24 border-4 border-mutedGold rounded-2xl"></div>
 
           <div className="bg-lightSand p-4 rounded-2xl shadow-md">
             <img
@@ -42,12 +44,14 @@ export default function About() {
               alt="Abdallah Youssef"
               className="rounded-xl w-full object-cover"
             />
-          </div>
+          </div> */}
 
           {/* خط ذهبي بسيط تحت الصورة */}
-          <div className="absolute -bottom-4 -right-4 w-24 h-24 border-4 border-mutedGold rounded-2xl"></div>
+          {/* <div className="absolute -bottom-4 -right-4 w-24 h-24 border-4 border-mutedGold rounded-2xl"></div>
         </div>
-      </div>
+*/} 
+
+      </div> 
     </section>
   );
 }
