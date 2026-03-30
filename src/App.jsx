@@ -1,34 +1,33 @@
-
 import './App.css'
-import ComingSoon from './ComingSoon'
-import About from './Components/About'
-import AnimatedSection from './Components/AnimatedSection'
-import ContactSection from './Components/ContactSection'
-import HeroSection from './Components/HeroSection'
+import { Routes, Route } from 'react-router-dom'
+
 import Navbar from './Components/Navbar'
+import HeroSection from './Components/HeroSection'
+import About from './Components/About'
+import ContactSection from './Components/ContactSection'
 import PortfolioSection from './Components/Portfolio/PortfolioSection'
+import ProjectDetails from './Components/Portfolio/ProjectDetails'
 
-function App() {
-
+function Home() {
   return (
     <>
-     {/* <ComingSoon /> */}
-      
+      <HeroSection />
+      <About />
+      <PortfolioSection />
+      <ContactSection />
+    </>
+  )
+}
+
+function App() {
+  return (
+    <>
       <Navbar />
 
-      <HeroSection />
-
-<AnimatedSection>
-        <About />
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <PortfolioSection />
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <ContactSection />
-      </AnimatedSection>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/project/:id" element={<ProjectDetails />} />
+      </Routes>
     </>
   )
 }
