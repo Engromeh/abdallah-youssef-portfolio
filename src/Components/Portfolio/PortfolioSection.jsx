@@ -1,35 +1,36 @@
 import React from "react";
-import me from "../../assets/Romeh.jpg";
+import FOODHERO from "../../assets/FOOD HERO.jpg";
+
 const portfolioData = [
   {
     id: 1,
     title: "Golden Desert",
     category: "Landscape",
-    images: [me, me, me],
+    images: [FOODHERO, FOODHERO, FOODHERO],
   },
   {
     id: 2,
     title: "Urban Silence",
     category: "Street",
-    images: [me, me, me],
+    images: [FOODHERO, FOODHERO, FOODHERO],
   },
   {
     id: 3,
     title: "Soft Portrait",
     category: "Portrait",
-    images: [me, me, me],
+    images: [FOODHERO, FOODHERO, FOODHERO],
   },
   {
     id: 4,
     title: "Wild Nature",
     category: "Travel",
-    images: [me, me, me],
+    images: [FOODHERO, FOODHERO, FOODHERO],
   },
   {
     id: 5,
     title: "Cinematic Motion",
     category: "Video",
-    images: [me, me, me],
+    images: [FOODHERO, FOODHERO, FOODHERO],
   },
 ];
 const PortfolioSection = () => {
