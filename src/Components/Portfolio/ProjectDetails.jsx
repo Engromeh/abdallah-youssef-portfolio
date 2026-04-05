@@ -8,78 +8,107 @@ const ProjectDetails = () => {
   const [modalImage, setModalImage] = useState(null);
 
   const project = portfolioData.find((item) => item.id === parseInt(id));
-
   if (!project) return <div>Not Found</div>;
 
   return (
-    <section className="bg-softBeige min-h-screen py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="min-h-screen py-20 px-6" style={{ background: "#F5F0E8", fontFamily: "'Tajawal', sans-serif" }}>
+      <div className="max-w-5xl mx-auto">
 
         {/* Back */}
         <button
           onClick={() => navigate(-1)}
-          className="mb-10 text-warmGray hover:text-richBlack transition"
+          className="mb-12 flex items-center gap-2 transition-colors duration-300"
+          style={{ color: "#8C7B70", fontSize: "0.8rem", letterSpacing: "0.1em", textTransform: "uppercase", background: "none", border: "none", cursor: "pointer" }}
+          onMouseEnter={e => e.currentTarget.style.color = "#C4956A"}
+          onMouseLeave={e => e.currentTarget.style.color = "#8C7B70"}
         >
-          ← Back
+          ← رجوع
         </button>
 
+        {/* Tag */}
+        <span style={{
+          display: "inline-block", padding: "0.3rem 1rem",
+          background: "rgba(138,158,138,0.15)", color: "#5C7A5C",
+          borderRadius: "100px", fontSize: "0.78rem",
+          letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "1rem"
+        }}>
+          {project.category}
+        </span>
+
         {/* Title */}
-        <h1 className="text-5xl font-light text-richBlack mb-4">
+        <h1 style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontSize: "clamp(2.5rem, 5vw, 4rem)",
+          fontWeight: 300, fontStyle: "italic",
+          color: "#6B5744", lineHeight: 1.1, marginBottom: "1rem"
+        }}>
           {project.title}
         </h1>
 
-        <p className="text-warmGray mb-12 text-lg max-w-2xl">
+        <p style={{ color: "#8C7B70", fontSize: "1rem", maxWidth: "520px", lineHeight: 1.8, marginBottom: "3rem" }}>
           {project.description}
         </p>
 
         {/* Hero Image */}
-        <div className="mb-16 overflow-hidden rounded-4xl flex justify-center items-center">
+        <div style={{ borderRadius: "24px", overflow: "hidden", height: "480px", marginBottom: "2rem", cursor: "pointer" }}
+          onClick={() => setModalImage(project.images[0])}>
           <img
             src={project.images[0]}
             alt=""
-            className="w-full max-h-[500px] object-contain hover:scale-105 transition duration-700 cursor-pointer"
-            onClick={() => setModalImage(project.images[0])}
+            style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.7s ease" }}
+            onMouseEnter={e => e.target.style.transform = "scale(1.04)"}
+            onMouseLeave={e => e.target.style.transform = "scale(1)"}
           />
         </div>
 
-        {/* Gallery */}
-        <div className="grid md:grid-cols-4 gap-8">
-          {project.images.map((img, index) => (
-            <img
-              key={index}
-              src={img}
-              alt=""
-              className="rounded-xl object-contain h-[300px] w-full hover:scale-105 transition duration-500 cursor-pointer"
-              onClick={() => setModalImage(img)}
-            />
-          ))}
+        {/* Divider */}
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "2.5rem 0" }}>
+          <div style={{ flex: 1, height: "1px", background: "rgba(196,149,106,0.25)" }} />
+          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#C4956A", opacity: 0.6 }} />
+          <div style={{ flex: 1, height: "1px", background: "rgba(196,149,106,0.25)" }} />
         </div>
 
-        {/* Info */}
-        {/* <div className="mt-16 border-t border-lightSand pt-10 flex flex-col md:flex-row justify-between items-center">
-          <div>
-            <p className="text-warmGray">Category</p>
-            <h3 className="text-xl text-richBlack">{project.category}</h3>
-          </div>
-
-          <button className="mt-6 md:mt-0 px-8 py-3 bg-terracotta text-white rounded-full hover:opacity-90 transition">
-            View Live Project
-          </button>
-        </div> */}
-
+        {/* Gallery */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem" }}>
+          {project.images.map((img, index) => (
+            <div key={index}
+              style={{ borderRadius: "14px", overflow: "hidden", height: "240px", cursor: "pointer" }}
+              onClick={() => setModalImage(img)}>
+              <img
+                src={img} alt=""
+                style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
+                onMouseEnter={e => e.target.style.transform = "scale(1.06)"}
+                onMouseLeave={e => e.target.style.transform = "scale(1)"}
+              />
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Modal */}
       {modalImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 p-4"
+          style={{
+            position: "fixed", inset: 0, background: "rgba(28,20,16,0.85)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            zIndex: 50, padding: "2rem", cursor: "pointer"
+          }}
           onClick={() => setModalImage(null)}
         >
+          <button
+            onClick={() => setModalImage(null)}
+            style={{
+              position: "fixed", top: "1.5rem", right: "1.5rem",
+              width: 40, height: 40, borderRadius: "50%",
+              background: "rgba(245,240,232,0.15)", border: "1px solid rgba(245,240,232,0.3)",
+              color: "#F5F0E8", fontSize: "1.2rem", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center"
+            }}
+          >✕</button>
           <img
-            src={modalImage}
-            alt=""
-            className="max-h-full max-w-full rounded-xl object-contain shadow-lg"
-            onClick={(e) => e.stopPropagation()}
+            src={modalImage} alt=""
+            style={{ maxHeight: "85vh", maxWidth: "90vw", borderRadius: "16px", objectFit: "contain", cursor: "default" }}
+            onClick={e => e.stopPropagation()}
           />
         </div>
       )}
