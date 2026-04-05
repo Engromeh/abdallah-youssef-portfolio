@@ -33,7 +33,7 @@ const ProjectDetails = () => {
         </p>
 
         {/* Hero Image */}
-        <div className="mb-16 overflow-hidden rounded-2xl flex justify-center items-center">
+        <div className="mb-16 overflow-hidden rounded-4xl flex justify-center items-center">
           <img
             src={project.images[0]}
             alt=""
@@ -43,7 +43,7 @@ const ProjectDetails = () => {
         </div>
 
         {/* Gallery */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {project.images.map((img, index) => (
             <img
               key={index}
